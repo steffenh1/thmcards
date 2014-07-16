@@ -1,6 +1,7 @@
 [submodule "public/MathJax"]
 	path = public/MathJax
 	url = git://github.com/mathjax/MathJax.git
+
 [submodule "puppet/modules/stdlib"]
 	path = puppet/modules/stdlib
 	url = https://github.com/puppetlabs/puppetlabs-stdlib
