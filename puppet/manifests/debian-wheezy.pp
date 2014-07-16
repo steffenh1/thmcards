@@ -1,4 +1,4 @@
-group { 'puppet': ensure => 'present' }
+group { "puppet": ensure => "present" }
 
 include stdlib
 
@@ -23,21 +23,21 @@ user { "vagrant":
 
 # get node.js
 class prepare {
-	class { 'apt': }
-	apt::ppa { 'ppa:chris-lea/node.js': }
+	class { "apt": }
+	apt::ppa { "ppa:chris-lea/node.js": }
 }
 
 include prepare
 
-package {'nodejs': 
+package {"nodejs": 
 	ensure => present, 
-	require => Class['prepare']
+	require => Class["prepare"]
 }
  
-package {'grunt-cli':
+package {"grunt-cli":
     ensure => present,
-    provider => 'npm',
-    require => Package['nodejs']
+    provider => "npm",
+    require => Package["nodejs"]
 }
 
 # get curl

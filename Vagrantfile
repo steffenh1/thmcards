@@ -77,10 +77,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # You will need to create the manifests directory and a manifest in
   # the file default.pp in the manifests_path directory.
   #
+  pp_manifest_path = "puppet/manifests"
+  pp_module_path = "puppet/modules"
+  pp_manifest_file = "debian-wheezy.pp"
+  
   config.vm.provision "puppet" do |puppet|
-    puppet.manifests_path = "puppet/manifests"
-	puppet.module_path = "puppet/modules"
-    puppet.manifest_file  = "debian-wheezy.pp"
+    puppet.manifests_path = pp_manifest_path
+	puppet.module_path = pp_module_path
+    puppet.manifest_file  = pp_manifest_file
+	puppet.options = ["--environment=development"]
 	#puppet.facter = {
     #    "vagrant_owner" => "vagrant",
     #    "vagrant_group" => "vagrant"
